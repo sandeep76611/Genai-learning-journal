@@ -1,0 +1,14 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Env files
+.env
+LangChain/.env
+
+# Others
+.DS_Store

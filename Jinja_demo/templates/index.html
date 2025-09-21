@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <h1>Welcome {{ username }} 🎉</h1>
+    <p>This is a modern FastAPI + Jinja2 UI demo with a clean design.</p>
+    <button class="btn-primary">Get Started</button>
+</section>
+
+<section class="cards">
+    <div class="card">
+        <h2>Fast</h2>
+        <p>Blazing fast backend using FastAPI.</p>
+    </div>
+    <div class="card">
+        <h2>Beautiful</h2>
+        <p>Clean templates powered by Jinja2.</p>
+    </div>
+    <div class="card">
+        <h2>Responsive</h2>
+        <p>Looks great on any device.</p>
+    </div>
+</section>
+{% endblock %}
