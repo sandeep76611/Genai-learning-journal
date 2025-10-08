@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="cafe-booking-container">
+  <h1>Café Booking</h1>
+
+  <!-- Booking Form -->
+<form method="post" action="/cafe-booking" class="two-col-form">
+  <div class="form-group">
+    <label for="date">Select Date</label>
+    <input type="date" id="date" name="date" min="{{ today }}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="time_slot">Select Time Slot</label>
+    <select id="time_slot" name="time_slot" required>
+      <option value="10:00-11:00">10:00 - 11:00</option>
+      <option value="11:00-12:00">11:00 - 12:00</option>
+      <option value="12:00-13:00">12:00 - 1:00</option>
+      <option value="13:00-14:00">1:00 - 2:00</option>
+      <option value="15:00-16:00">3:00 - 4:00</option>
+      <option value="16:00-17:00">4:00 - 5:00</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+  </div>
+
+  <button type="submit">Book Slot</button>
+</form>
+
+
+  <!-- Bookings Table -->
+  <h2>All Bookings</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Time Slot</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        <td data-label="ID">{{ booking.id }}</td>
+        <td data-label="Date">{{ booking.date }}</td>
+        <td data-label="Time Slot">{{ booking.time_slot }}</td>
+        <td data-label="Name">{{ booking.name }}</td>
+        <td data-label="Phone">{{ booking.phone }}</td>
+        <td data-label="Action">
+          <a href="/cafe-booking/delete/{{ booking.id }}" class="delete-btn">Cancel</a>
+        </td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="6" style="text-align:center;">No bookings yet</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

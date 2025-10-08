@@ -1,0 +1,73 @@
+/* --- Forms Styling --- */
+.filter-form, .booking-form {
+    background: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+label {
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+input, select, button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* --- Table Styling --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.delete-btn {
+    color: white;
+    background-color: #e74c3c;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+
+/* --- Responsive --- */
+@media screen and (max-width: 768px) {
+    .filter-form, .booking-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

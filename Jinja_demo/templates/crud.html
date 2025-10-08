@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="crud">
+  <h1>Students</h1>
+  <a class="btn-primary" href="/students/new">+ Add Student</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Age</th><th>Grade</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+          <td data-label="ID">{{ student.id }}</td>
+          <td data-label="Name">{{ student.name }}</td>
+          <td data-label="Age">{{ student.age }}</td>
+          <td data-label="Grade">{{ student.grade }}</td>
+          <td data-label="Actions">
+            <a href="/students/edit/{{ student.id }}">Edit</a> |
+            <a href="/students/delete/{{ student.id }}" onclick="return confirm('Delete this student?')">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+  </table>
+</section>
+{% endblock %}

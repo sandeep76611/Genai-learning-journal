@@ -1,0 +1,67 @@
+<!-- templates/result.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Results — LangChain Q&A</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/static/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>LangChain Q&A</h1>
+      <p class="subtitle">Upload, ask and get answers with source snippets.</p>
+    </header>
+
+    <main class="card">
+      {% if error %}
+        <div class="alert error">{{ error }}</div>
+      {% endif %}
+
+      {% if uploaded %}
+        <div class="meta">
+          <strong>File:</strong> {{ file_name }} &nbsp; • &nbsp;
+          <strong>Type:</strong> {{ file_type }} &nbsp; • &nbsp;
+          <strong>Docs:</strong> {{ num_docs }} &nbsp; • &nbsp;
+          <strong>Chunks:</strong> {{ num_chunks }}
+        </div>
+
+        <div class="preview">
+          <h3>Quick summary (preview)</h3>
+          <p>{{ summary }}</p>
+        </div>
+      {% endif %}
+
+      {% if asked %}
+        <div class="qa">
+          <h3>Question</h3>
+          <p class="question">{{ question }}</p>
+
+          <h3>Answer</h3>
+          <div class="answer">{{ answer|safe }}</div>
+
+          <h4>Sources (retrieved)</h4>
+          <ul class="sources">
+            {% for s in sources %}
+              <li>
+                <strong>Score:</strong> {{ '%.3f'|format(s.score) }} —
+                <em>{{ s.metadata.source if s.metadata.source else (('Page ' ~ s.metadata.page) if s.metadata.page else 'Row ' ~ s.metadata.row) }}</em>
+                <div class="snippet">{{ s.text[:500] }}{% if s.text|length > 500 %}...{% endif %}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <div class="actions">
+        <a href="/" class="btn">Back</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <small>Built with FastAPI • LangChain • Gemini</small>
+    </footer>
+  </div>
+</body>
+</html>

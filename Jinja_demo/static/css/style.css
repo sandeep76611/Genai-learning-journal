@@ -1,0 +1,623 @@
+/* =============================
+   GLOBAL STYLES
+   ============================= */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #EEEEEE;
+  color: #333;
+  line-height: 1.6;
+}
+
+h1, h2 {
+  color: #222;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* =============================
+   DASHBOARD HEADER
+   ============================= */
+.dashboard-header {
+  background: linear-gradient(90deg, #6a5dfd,#222831);
+  color: #fff;
+  text-align: center;
+  margin-top: 0;
+  position: sticky;
+  top: 50px; 
+  z-index: 1000;
+  padding: 1rem 2rem ;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: white;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 1rem;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* =============================
+   NAVBAR
+   ============================= */
+nav {
+  background: #222831;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+nav .logo a {
+  color: white;
+  font-weight: 700;
+  font-size: 1.4rem;
+  font-optical-sizing: auto;
+  text-decoration: none;
+  font-family: "Dancing Script", cursive;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #9bc4c3;
+  color: #222;
+}
+
+/* =============================
+   MOBILE NAVIGATION
+   ============================= */
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  nav ul {
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    margin-top: 10px;
+    background: #4c39f7;
+    border-radius: 8px;
+    padding: 10px 0;
+  }
+
+  nav ul li a {
+    padding: 12px 20px;
+  }
+
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    display: flex;
+  }
+}
+
+
+/* =============================
+   MAIN WRAPPER
+   ============================= */
+main {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
+/* =============================
+   STUDENT FORM STYLING
+   ============================= */
+.form-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: 'Inter', sans-serif;
+}
+
+.form-section h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #393E46;
+  font-size: 2rem;
+}
+
+/* Two-column row */
+.input-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Single input group */
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 90%;
+  padding: 14px 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: transparent;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #4c39f7;
+  outline: none;
+}
+
+/* Floating label */
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  background: #fff;
+  padding: 0 4px;
+  color: #888;
+  font-size: 1rem;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+/* When input has value or focus */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #393E46;
+}
+
+/* Button */
+.form-section .btn-primary {
+  width: 100%;
+  padding: 12px;
+  background: #393E46;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-section .btn-primary:hover {
+  background: #3423a6;
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media (max-width: 768px) {
+  .input-row {
+    grid-template-columns: 1fr; /* stack inputs */
+  }
+
+  .form-section {
+    padding: 20px 15px;
+  }
+}
+
+
+/* =============================
+   CAFE BOOKING PAGE
+   ============================= */
+.cafe-booking-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.cafe-booking-container h1,
+.cafe-booking-container h2 {
+  text-align: center;
+  color: #393E46;
+  margin-bottom: 20px;
+}
+
+/* ====== FORM STYLING ====== */
+form.two-col-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+form.two-col-form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+form.two-col-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+form.two-col-form input,
+form.two-col-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form.two-col-form button {
+  grid-column: span 2;
+  padding: 10px 20px;
+  background: #393E46;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form.two-col-form button:hover {
+  background: #3423a6;
+}
+
+/* ====== TABLE STYLING ====== */
+.cafe-booking-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.cafe-booking-container th,
+.cafe-booking-container td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.cafe-booking-container thead {
+  background: #393E46;
+  color: white;
+  font-weight: 700;
+}
+
+.cafe-booking-container tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.delete-btn {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  background: #ff4d4d;
+  color: #fff;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #e60000;
+}
+
+/* =============================
+   RESPONSIVE STYLING
+   ============================= */
+@media (max-width: 768px) {
+  /* Form stacks in single column */
+  form.two-col-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* Table responsive */
+  .cafe-booking-container table,
+  .cafe-booking-container thead,
+  .cafe-booking-container tbody,
+  .cafe-booking-container th,
+  .cafe-booking-container td,
+  .cafe-booking-container tr {
+    display: block;
+    width: 100%;
+  }
+
+  .cafe-booking-container thead {
+    display: none; /* hide table header */
+  }
+
+  .cafe-booking-container .delete-btn {
+    /* width: 100%;
+    text-align: center; */
+    margin-top: 0.5rem;
+  }
+  .cafe-booking-container tr {
+    margin-bottom: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 10px 15px;
+  }
+
+  .cafe-booking-container td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    word-break: break-word;
+  }
+
+  .cafe-booking-container td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  form.two-col-form button {
+    grid-column: span 1; /* full width on mobile */
+  }
+}
+
+
+/* =============================
+   CARDS
+   ============================= */
+.cards {
+  display: grid;
+  
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: #393E46;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.07);
+}
+
+.card h3 { margin-top: 0; }
+.card p { color: #EEEEEE; }
+.card a {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #4c39f7;
+  color: white;
+ 
+  border-radius: 6px;
+}
+.card a{
+   padding: 5px;
+   text-align: center;
+}
+.card a:hover {
+  background-color: #9bc4c3;
+  color: #222;
+}
+/* =============================
+   CRUD PAGE
+   ============================= */
+.crud {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.crud h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #070707;
+}
+
+/* Button */
+.crud .btn-primary {
+  display: inline-block;
+  background: #393E46;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 20%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.crud .btn-primary:hover {
+  background: #3423a6;
+}
+
+/* Table */
+.crud table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.crud th, .crud td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.crud thead {
+  background-color: #393E46;
+  color: white;
+}
+
+.crud tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.crud tbody tr:hover {
+  background-color: #f1f0ff;
+}
+
+.crud a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #9bc4c3;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.crud a:hover {
+  background-color: #7aa99d;
+}
+
+
+/* =============================
+   RESPONSIVE TABLE FIX
+   ============================= */
+@media (max-width: 768px) {
+  .crud table,
+  .crud thead,
+  .crud tbody,
+  .crud th,
+  .crud td,
+  .crud tr {
+    display: block;
+    width: 100%;
+  }
+
+  .crud thead {
+    display: none; /* hide table header */
+  }
+
+  .crud tr {
+    margin-bottom: 1rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 10px 15px;
+  }
+
+  .crud td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    word-break: break-word;
+  }
+
+  /* Label before each td */
+  .crud td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  /* Buttons full width */
+  .crud .btn-primary {
+    width: 90%;
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  .crud a {
+    width: 20%;
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+
+/* =============================
+   RESPONSIVENESS
+   ============================= */
+@media (max-width: 900px) {
+  .input-row,
+  .two-col-form,
+  .cafe-booking-container form {
+    grid-template-columns: 1fr;
+  }
+}

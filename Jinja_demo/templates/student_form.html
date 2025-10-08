@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="form-section">
+  <h1>{{ student and 'Edit' or 'Add' }} Student</h1>
+  <form method="post">
+    <div class="input-row">
+      <div class="input-group">
+        <input type="text" name="name" placeholder=" " value="{{ student.name if student else '' }}" required>
+        <label>Name</label>
+      </div>
+      <div class="input-group">
+        <input type="number" name="age" placeholder=" " value="{{ student.age if student else '' }}" required>
+        <label>Age</label>
+      </div>
+    </div>
+    <div class="input-group">
+      <input type="text" name="grade" placeholder=" " value="{{ student.grade if student else '' }}" required>
+      <label>Grade</label>
+    </div>
+    <button class="btn-primary" type="submit">{{ student and 'Update' or 'Create' }}</button>
+  </form>
+</section>
+
+{% endblock %}

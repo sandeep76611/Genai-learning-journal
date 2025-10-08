@@ -1,0 +1,11 @@
+# Introduction to AI
+Artificial Intelligence (AI) is a field of computer science focused on creating machines that can perform tasks that normally require human intelligence.
+
+## Applications in Healthcare
+AI helps doctors by analyzing medical images, predicting patient outcomes, and providing personalized treatment recommendations.
+
+## Applications in Finance
+AI detects fraudulent transactions, improves customer service via chatbots, and helps with credit risk analysis.
+
+## Challenges
+AI raises ethical issues, privacy concerns, and requires careful handling of sensitive data.
